@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def index(request):
-    return render(request, 'analytics/index.html')
+def homepage(request):
+    return render(request, 'analytics/homepage.html')
 
 def login(request):
     return render(request, 'analytics/login.html')
