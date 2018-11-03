@@ -1,1 +1,1 @@
-c:\users\h164654156465\appdata\local\continuum\anaconda3
+c:\users\d5960\appdata\local\programs\python\python36
