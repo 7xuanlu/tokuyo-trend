@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8aa35865-a694-45f3-a5be-af1d68c677c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/templates/analytics/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/charts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/templates/analytics/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tables.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokuyo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokuyo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokuyo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokuyo/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="8aa35865-a694-45f3-a5be-af1d68c677c3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,14 +28,14 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="2" />
-          <entry key="json" value="1" />
+          <entry key="json" value="2" />
           <entry key="py" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="2" />
-          <entry key="JSON" value="1" />
+          <entry key="JSON" value="2" />
           <entry key="Python" value="8" />
         </counts>
       </usages-collector>
@@ -94,6 +84,11 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trends_data.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -148,7 +143,7 @@
       <path value="$PROJECT_DIR$/analytics/static/analytics/vendor/fontawesome-free/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1088" />
@@ -332,9 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trends_data.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/urls/conf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -379,6 +371,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trends_data.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/analytics/views.py">
       <provider selected="true" editor-type-id="text-editor">
