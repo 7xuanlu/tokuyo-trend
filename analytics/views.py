@@ -17,7 +17,7 @@ def search_kw(request):
     kw_list = [kw]
     pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='TH', gprop='')
     preload = json.loads(pytrends.interest_over_time().to_json(orient='table'))['data']
-    print(preload)
+    # print(preload)
     with open("trends_data.json", 'w') as f:
         json.dump(preload, f)
     return HttpResponse(kw)
