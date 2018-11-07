@@ -22,6 +22,7 @@ def search_kw(request):
         json.dump(preload, f)
     return HttpResponse(kw)
 
+
 # def login(request):
 # return render(request, 'analytics/login.html')
 
