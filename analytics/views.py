@@ -15,13 +15,21 @@ def search_kw(request):
 
     pytrends = TrendReq(hl='en-US', tz=360)
     kw_list = []
-    kw = request.POST['search_kw']
+    list_interest_by_region = {}
+    kw = 'massage'
+    # kw = request.POST['search_kw']
     kw_list = [kw]
     pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='TH', gprop='')
+    b = pytrends.interest_by_region(resolution='COUNTRY').sort_values('massage', ascending=False)
+    interest_by_region_dict = b[kw_list[0]].to_dict()
     preload = json.loads(pytrends.interest_over_time().to_json(orient='table'))['data']
-    # print(preload)
-    with open("trends_data.json", 'w') as f:
-        json.dump(preload, f)
+    trend_dict = {
+        'interest': preload,
+        'interest_by_region': interest_by_region_dict
+    }
+    print(preload)
+    file = open("trends_data.json", 'w')
+    file.write(json.dumps(trend_dict))
     return HttpResponse(kw)
 
 def login(request):
