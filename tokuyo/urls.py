@@ -19,9 +19,8 @@ from django.contrib.auth import views as auth_views
 from analytics import views
 
 urlpatterns = [
-    #path('accounts/', include('django.contrib.auth.urls')),
-    #path('register/', auth_views.LoginView.as_view(template_name='registration/register.html')),
     path('login/', views.login, name='login'),
+    path('logout/', views.logout_view, name='logout'),
     path('', views.home, name=''),
     path('admin/', admin.site.urls),
     path('search_kw/', views.search_kw, name='search_kw'),

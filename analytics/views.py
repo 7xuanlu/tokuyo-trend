@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .forms import LoginForm
 # login
 from django.contrib import auth, messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 def home(request):
@@ -47,8 +47,9 @@ def login(request):
 
     return render(request, 'registration/login.html', locals())
 
-# def register(request):
-#     return render(request, 'analytics/register.html')
+def logout_view(request):
+    logout(request)
+    return redirect('/login')
 
 # def forgot_password(request):
 # return render(request, 'analytics/forgot-password.html')
