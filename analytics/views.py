@@ -7,7 +7,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request, 'home.html')
+    if 'successful_submit' in request.session:
+        successful_submit = True
+    return render(request, 'home.html', locals())
 
 def search_kw(request):
     import json
@@ -42,7 +44,7 @@ def login(request):
             if user is not None:
                 if user.is_active:
                     auth.login(request, user)
-                    messages.add_message(request, messages.SUCCESS, '成功登入了')
+                    request.session['successful_submit'] = 'True'
                     return redirect('/')
                 else:
                     messages.add_message(request, messages.WARNING, '帳號尚未啟用')
