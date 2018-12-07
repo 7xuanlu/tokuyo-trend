@@ -8,7 +8,9 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        username = request.user.username
+    return render(request, 'home.html', locals())
 
 def search_kw(request):
     import json
@@ -52,7 +54,6 @@ def login(request):
             messages.add_message(request, messages.INFO, '請檢察輸入的欄位是否正確')
     else:
         login_form = LoginForm()
-
     return render(request, 'registration/login.html', locals())
 
 def logout_view(request):
