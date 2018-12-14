@@ -143,7 +143,7 @@
             <i class="fas fa-chart-area"></i>
             Interest over time
           </div>
-          <div class="card-body">
+          <div id="mychart", class="card-body">
             <canvas id="myAreaChart" width="100%" height="30"></canvas>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -247,7 +247,7 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <!-- Bootstrap core JavaScript-->
@@ -258,25 +258,13 @@
   <script src="{% static "analytics/vendor/jquery-easing/jquery.easing.min.js" %}"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="{% static "analytics/vendor/chart.js/Chart.min.js" %}"></script>
-  <script src="{% static "analytics/vendor/datatables/jquery.dataTables.js" %}"></script>
-  <script src="{% static "analytics/vendor/datatables/dataTables.bootstrap4.js" %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="{% static "analytics/js/sb-admin.min.js" %}"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="{% static "analytics/js/demo/datatables-demo.js" %}"></script>
-  <script src="{% static "analytics/js/demo/chart-area-demo.js" %}"></script>
-
-  <!--{% if successful_submit %}
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $("#loginModal").modal('show');
-    });
-  </script>
-{% endif %}-->
-
+  <script src="{% static "analytics/js/chart-trend.js" %}"></script>
 </body>
 
 </html>

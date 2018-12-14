@@ -1,4 +1,4 @@
-#!D:\DIGI+ 研習資料\tokuyo\venv\Scripts\python.exe
+#!c:\users\h16465~1\google~1\quicka~1\progra~1\project\django~1\tokuyo\venv\scripts\python.exe
 # See http://cens.ioc.ee/projects/f2py2e/
 from __future__ import division, print_function
 
