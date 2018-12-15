@@ -10,6 +10,22 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'home.html')
 
+def topic_massage(request):
+    return render(request, "topic_massage.html")
+
+def topic_fit(request):
+    return render(request, "topic_fit.html")
+
+def topic_rival(request):
+    return render(request, "topic_rival.html")
+
+def trend(request):
+    return render(request, "trend.html")
+
+def traffic(request):
+    return render(request, "traffic.html")
+
+@login_required
 def search_kw(request):
     import json
     import pandas as pd

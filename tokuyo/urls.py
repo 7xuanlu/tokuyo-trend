@@ -19,10 +19,14 @@ from django.contrib.auth import views as auth_views
 from analytics import views
 
 urlpatterns = [
+    path('', views.home, name=''),
     path('login/', views.login, name='login'),
     path('logout/', views.logout_view, name='logout'),
-    path('', views.home, name=''),
-    path('admin/', admin.site.urls),
+    path("topic/massage/", views.topic_massage, name="topic_massage"),
+    path("topic/fit_equipment/", views.topic_fit, name="topic_fit_equipment"),
+    path("topic/rival/", views.topic_rival, name="topic_rival"),
+    path("trend/", views.trend, name="trend"),
+    path("traffic/", views.traffic, name="traffic"),
     path('api/google_trend/', views.search_kw, name='google_trend_api'),
-    path('chart/', auth_views.LoginView.as_view(template_name='charts.html')),
+    path('admin/', admin.site.urls),
 ]
