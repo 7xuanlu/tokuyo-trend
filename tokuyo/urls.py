@@ -23,6 +23,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('', views.home, name=''),
     path('admin/', admin.site.urls),
-    path('search_kw/', views.search_kw, name='search_kw'),
+    path('api/google_trend/', views.search_kw, name='google_trend_api'),
     path('chart/', auth_views.LoginView.as_view(template_name='charts.html')),
 ]

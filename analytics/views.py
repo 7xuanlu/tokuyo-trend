@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import LoginForm
 # login
 from django.contrib import auth, messages
@@ -12,6 +12,7 @@ def home(request):
 
 def search_kw(request):
     import json
+    import pandas as pd
     from pytrends.request import TrendReq
 
     pytrends = TrendReq(hl='en-US', tz=360)
@@ -23,15 +24,19 @@ def search_kw(request):
     pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='TH', gprop='')
     b = pytrends.interest_by_region(resolution='COUNTRY').sort_values('massage', ascending=False)
     interest_by_region_dict = b[kw_list[0]].to_dict()
-    preload = json.loads(pytrends.interest_over_time().to_json(orient='table'))['data']
+    df = pytrends.interest_over_time()
+    df.index = pd.to_datetime(df.index, format="%Y-%m-%d")
+    df.index.name = "date"
+    preload = json.loads(df.to_json(orient='table'))['data']
+
     trend_dict = {
         'interest': preload,
         'interest_by_region': interest_by_region_dict
     }
-    print(preload)
     file = open("trends_data.json", 'w')
     file.write(json.dumps(trend_dict))
-    return HttpResponse(kw)
+
+    return JsonResponse(preload, safe=False)  # safe defaults to python dict
 
 def login(request):
     if request.method == 'POST':
