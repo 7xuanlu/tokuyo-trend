@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from .forms import LoginForm
+from .forms import LoginForm, KWForm
 # login
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate, login, logout
@@ -32,25 +32,34 @@ def search_kw(request):
     from pytrends.request import TrendReq
 
     pytrends = TrendReq(hl='en-US', tz=360)
-    kw_list = []
     list_interest_by_region = {}
-    kw = 'massage'
-    # kw = request.POST['search_kw']
+    #kw = 'massage'
+    #kw = request.POST["keyword"]
+    if request.method == 'POST':
+        form = KWForm(request.POST)
+        if form.is_valid():
+            kw = form.cleaned_data["keyword"]
+            request.session["keyword"] = kw
+        else:
+            pass
+    else:
+        kw = request.session["keyword"]
+
     kw_list = [kw]
     pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='TH', gprop='')
-    b = pytrends.interest_by_region(resolution='COUNTRY').sort_values('massage', ascending=False)
-    interest_by_region_dict = b[kw_list[0]].to_dict()
+    #b = pytrends.interest_by_region(resolution='COUNTRY').sort_values(kw, ascending=False)
+    #interest_by_region_dict = b[kw_list[0]].to_dict()
     df = pytrends.interest_over_time()
     df.index = pd.to_datetime(df.index, format="%Y-%m-%d")
     df.index.name = "date"
     preload = json.loads(df.to_json(orient='table'))['data']
 
-    trend_dict = {
-        'interest': preload,
-        'interest_by_region': interest_by_region_dict
-    }
-    file = open("trends_data.json", 'w')
-    file.write(json.dumps(trend_dict))
+    #trend_dict = {
+    #    'interest': preload,
+    #    'interest_by_region': interest_by_region_dict
+    #}
+    #file = open("trends_data.json", 'w')
+    #file.write(json.dumps(trend_dict))
 
     return JsonResponse(preload, safe=False)  # safe defaults to python dict
 

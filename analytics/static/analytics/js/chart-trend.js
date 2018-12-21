@@ -11,11 +11,14 @@ $.ajax({
     var dates = [];
     // insts = interest
     var insts = [];
+    var keys = Object.keys(data[0]);
+    var kw = keys[1];
+    console.log(kw);
     for (i in data) {
       dates.push(moment(data[i]["date"]).format("YYYY/MM/DD"));
-      insts.push(data[i]["massage"]);
+      insts.push(data[i][kw]);
     }
-    var ctx = document.getElementById("myAreaChart").getContext('2d');;
+    var ctx = document.getElementById("myAreaChart").getContext('2d');
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -36,6 +39,10 @@ $.ajax({
         }],
       },
       options: {
+        title: {
+          display: true,
+          text: kw
+        },
         scales: {
           xAxes: [{
             time: {

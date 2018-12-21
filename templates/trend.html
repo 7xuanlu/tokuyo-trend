@@ -31,7 +31,7 @@
       <!-- Navbar Search -->
       <form action="{% url "google_trend_api" %}" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" method="post">{% csrf_token %}
         <div class="input-group">
-          <input type="text" name="search_kw" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <input type="text" name="kw" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
           <div class="input-group-append">
             <button class="btn btn-primary" type="submit">
               <i class="fas fa-search"></i>
