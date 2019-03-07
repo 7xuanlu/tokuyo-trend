@@ -28,38 +28,22 @@ def traffic(request):
 @login_required
 def search_kw(request):
     import json
-    import pandas as pd
     from pytrends.request import TrendReq
 
     pytrends = TrendReq(hl='en-US', tz=360)
-    list_interest_by_region = {}
-    #kw = 'massage'
-    #kw = request.POST["keyword"]
     if request.method == 'POST':
         form = KWForm(request.POST)
         if form.is_valid():
             kw = form.cleaned_data["keyword"]
             request.session["keyword"] = kw
-        else:
-            pass
     else:
         kw = request.session["keyword"]
-
     kw_list = [kw]
-    pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='TH', gprop='')
-    #b = pytrends.interest_by_region(resolution='COUNTRY').sort_values(kw, ascending=False)
-    #interest_by_region_dict = b[kw_list[0]].to_dict()
-    df = pytrends.interest_over_time()
-    df.index = pd.to_datetime(df.index, format="%Y-%m-%d")
-    df.index.name = "date"
-    preload = json.loads(df.to_json(orient='table'))['data']
 
-    #trend_dict = {
-    #    'interest': preload,
-    #    'interest_by_region': interest_by_region_dict
-    #}
-    #file = open("trends_data.json", 'w')
-    #file.write(json.dumps(trend_dict))
+    pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='TH', gprop='')
+
+    df = pytrends.interest_over_time()
+    preload = json.loads(df.to_json(orient='table'))['data']
 
     return JsonResponse(preload, safe=False)  # safe defaults to python dict
 
